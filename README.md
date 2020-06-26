@@ -106,13 +106,13 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 | | *Insert your diagram here...* |
 |Question | Who is going to **send UDP datagrams** and **when**? |
-| | *Enter your response here...* |
+| | Every musician. Every second. |
 |Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
-| | *Enter your response here...* |
+| | *Every auditor listen to the UDP datagrams from the musicians. When a datagram is received, the auditor updates his list of active musicians.* |
 |Question | What **payload** should we put in the UDP datagrams? |
-| | *Enter your response here...* |
+| | *The sound of the instrument and ths musician's uuid* |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | *Enter your response here...* |
+| | *We need two associative arrays (map) to associate the sounds and the instruments. The first one, in the sender (musician) maps an instrument with its sound. The second one, in the receiver (auditor) maps a sound with its instrument. They will never be updated (not at runtime anyway). We need to query them every time we want to send the sound associated with an instrument or find the instrument associated with a specific sound. </br></br>We need antoher data structure in the receiver to store a list of the active musicians. A map associating an uuid with something like a "musician history" object containing the instrument, the first activity timestamp and the last activity timestamp. This structure is obviously updated every time an UDP datagram is received, but we need to update it now and then to remove inactive musicians. The easy way is to clean it when we query it, that is, when we want to send it over TCP* |
 
 
 ## Task 2: implement a "musician" Node.js application
@@ -120,21 +120,21 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-| | *Enter your response here...*  |
+| | *`JSON.stringify` is appropriate*  |
 |Question | What is **npm**?  |
-| | *Enter your response here...*  |
+| | *npm is the official package manager for Node.js* |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
-| | *Enter your response here...*  |
+| | *`npm install` will install a package. `--save` is an old flag which was used for adding a the installed package as a dependecy. The flag isn't needed since npm 5 anymore.*  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
-| | *Enter your response here...*  |
+| | *With Firefox the only browser you should use if you're concerned about a free and open web.*  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
-| | *Enter your response here...*  |
+| | *The `rfc4122` npm package should be fine. RFC4122 version 4 seems appropriate for our usage, so we're going to use the `v4f` method.*  |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
-| | *Enter your response here...*  |
+| | *We can use the `setInterval` function (which takes the function to execute as argument),*  |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
-| | *Enter your response here...*  |
+| | *In the `dgram` package we can create a socket with `dgram.createSocket('udp4')`. The we just need to use the `send` method on our socket.*|
 |Question | In Node.js, how can we **access the command line arguments**? |
-| | *Enter your response here...*  |
+| | *They are stored in a globally exposed array `process.argv`.*|
 
 
 ## Task 3: package the "musician" app in a Docker image
