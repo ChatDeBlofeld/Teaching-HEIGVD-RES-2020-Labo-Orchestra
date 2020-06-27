@@ -142,15 +142,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we **define and build our own Docker image**?|
-| | *Enter your response here...*  |
+| | *We create a Dockerfile with instructions to build the image and then use the command `docker build`, giving the image a name and a directory where the Dockerfile is located. *  |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
-| | *Enter your response here...*  |
+| | *`ENTRYPOINT` is used to define what command the container will run at its start. Here we give it two arguments : `"node"` and `"/opt/app/app.js"`. This allows to run the `app.js` script. *  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
-| | *Enter your response here...*  |
+| | *We use the `docker run  <image_name> <instument_name> ` command.*  |
 |Question | How do we get the list of all **running containers**?  |
-| | *Enter your response here...*  |
+| | *We use `docker ps`.*  |
 |Question | How do we **stop/kill** one running container?  |
-| | *Enter your response here...*  |
+| | *We use `docker kill <container_name>`. To know the container's name, we can use `docker ps`*  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
 | | *Enter your response here...*  |
 
@@ -166,7 +166,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
 | | *Enter your response here...* |
 |Question | When and how do we **get rid of inactive players**?  |
-| | *Enter your response here...* |
+| | *Inactive musicians are deleted when the list of musicians is asked to the auditor. However, if a musician is inactive (the auditor did not recieve anything in the last 5 seconds), it is not automatically deleted.* |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
 | | *Enter your response here...* |
 
