@@ -130,7 +130,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
 | | *The `rfc4122` npm package should be fine. RFC4122 version 4 seems appropriate for our usage, so we're going to use the `v4f` method.*  |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
-| | *We can use the `setInterval` function (which takes the function to execute as argument),*  |
+| | *We can use the `setInterval` function (which takes the function to execute as argument).*  |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
 | | *In the `dgram` package we can create a socket with `dgram.createSocket('udp4')`. The we just need to use the `send` method on our socket.*|
 |Question | In Node.js, how can we **access the command line arguments**? |
@@ -152,7 +152,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **stop/kill** one running container?  |
 | | *We use `docker kill <container_name>`. To know the container's name, we can use `docker ps`*  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
-| | *Enter your response here...*  |
+| | *We can use Wireshark to scan the traffic on the docker network interface*  |
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -160,15 +160,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | ---  |
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
-| | *Enter your response here...*  |
+| | *We have to use the `addMembership` method with a given multicast group. We can do it at socket binding. *  |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
-| | *Enter your response here...* |
+| | *We can call the `Map` constructor with any `Iterable`. In our case, the array of instrument/sound defined in our protocol.* |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
-| | *Enter your response here...* |
+| | *Good question, the code was written without this library and no problem occured.* |
 |Question | When and how do we **get rid of inactive players**?  |
 | | *Inactive musicians are deleted when the list of musicians is asked to the auditor. However, if a musician is inactive (the auditor did not recieve anything in the last 5 seconds), it is not automatically deleted.* |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
-| | *Enter your response here...* |
+| | *We can use the `net` library and create a TCP server with `createServer`. Then we just have to listen to a `connection` event with the `on` method.* |
 
 
 ## Task 5: package the "auditor" app in a Docker image
@@ -176,7 +176,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we validate that the whole system works, once we have built our Docker image? |
-| | *Enter your response here...* |
+| | *We just have to run the `validate.sh` script and be sure all tests are working. The script runs some musicians and auditors and checks if the list of musicians can correctly be queried (and if it updtates correctly too).* |
 
 
 ## Constraints
