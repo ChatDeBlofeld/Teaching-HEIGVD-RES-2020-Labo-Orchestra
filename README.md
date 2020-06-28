@@ -106,7 +106,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 | | *Insert your diagram here...* |
 |Question | Who is going to **send UDP datagrams** and **when**? |
-| | Every musician. Every second. |
+| | *Every musician. Every second.* |
 |Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
 | | *Every auditor listen to the UDP datagrams from the musicians. When a datagram is received, the auditor updates his list of active musicians.* |
 |Question | What **payload** should we put in the UDP datagrams? |
@@ -160,7 +160,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | ---  |
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
-| | *We have to use the `addMembership` method with a given multicast group. We can do it at socket binding. *  |
+| | *We have to use the `addMembership` method with a given multicast group. We can do it at socket binding.*  |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
 | | *We can call the `Map` constructor with any `Iterable`. In our case, the array of instrument/sound defined in our protocol.* |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
@@ -176,7 +176,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we validate that the whole system works, once we have built our Docker image? |
-| | *We just have to run the `validate.sh` script and be sure all tests are working. The script runs some musicians and auditors and checks if the list of musicians can correctly be queried (and if it updtates correctly too).* |
+| | *We just have to run the `validate.sh` script and be sure all tests are working. The script runs some musicians and auditors and checks if the list of musicians can correctly be queried (and if it updates correctly too).* |
 
 
 ## Constraints
